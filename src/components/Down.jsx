@@ -1,4 +1,10 @@
-import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import React from "react";
 import { DataContext } from "../context/DataContext";
 import "./Down.css";
@@ -142,23 +148,38 @@ const Down = () => {
           label="Search"
           variant="standard"
         />
-        <div>
-          <h3>{array.length}</h3>
-          <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={age}
-            onChange={handleChange}
-            label="Age"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+        <div className="handel">
+          <h3>{array.length} deals</h3>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-standard-label">
+              Featured
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={age}
+              onChange={handleChange}
+              label="Age"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={"Featured"}>Featured</MenuItem>
+              <MenuItem value={"A-Z"}>A-Z</MenuItem>
+              <MenuItem value={"Newest"}>Newest</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
+        <div className="collectionCard">
+          {array.map((item) => {
+            return (
+              <div className="handelCards" key={item.id}>
+                <img src={item.url} alt={item.name} />
+                <h3>{item.name}</h3>
+                <p>{item.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

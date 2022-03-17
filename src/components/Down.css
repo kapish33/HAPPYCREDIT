@@ -1,6 +1,7 @@
 .grid_bottom {
   display: grid;
   grid-template-columns: 1fr 4.2fr;
+  grid-gap: 1rem;
 }
 .giveBottom {
   color: #0e0e0d8a;
@@ -15,8 +16,25 @@
 .gapping > * {
   margin-top: 10px;
 }
-.down_right > * {
+.down_right > :first-child {
   width: 100%;
   border: none;
   border-bottom: 1px solid #000000;
+}
+.handel {
+  display: flex;
+  justify-content: space-between;
+}
+.handelCards > img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.collectionCard {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
