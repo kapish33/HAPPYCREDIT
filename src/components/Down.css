@@ -1,0 +1,17 @@
+.grid_bottom {
+  display: grid;
+  grid-template-columns: 1fr 4.2fr;
+}
+.giveBottom {
+  color: #0e0e0d8a;
+  cursor: pointer;
+}
+.giveBottom:hover {
+  color: #0e0e0d;
+}
+.underline {
+  border-bottom: 2px solid #00000048;
+}
+.gapping > * {
+  margin-top: 10px;
+}

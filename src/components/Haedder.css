@@ -1,0 +1,29 @@
+.upper {
+  display: flex;
+  justify-content: space-between;
+}
+.upper_list {
+  display: flex;
+  justify-content: space-between;
+}
+.upper_list > * {
+  padding: 10px;
+}
+.upper > * {
+  padding: 10px;
+  margin: 10px 5px;
+}
+.buttons > button {
+  background-color: black;
+  border-radius: 15px;
+  color: white;
+  border: 2px solid black;
+  margin-right: 10px;
+}
+.buttons > button:hover {
+  background-color: white;
+  color: black;
+}
+.boderHand {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+}

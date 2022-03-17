@@ -1,10 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Deal from "./components/Deal";
+import Haedder from "./components/Haedder";
+import Down from "./components/Down.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <Haedder />
+      <Deal />
+      <Down />
     </div>
   );
 }

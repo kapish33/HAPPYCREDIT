@@ -1,0 +1,45 @@
+.width {
+  width: 90%;
+
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.width h1 {
+  margin-top: 40px;
+  color: rgb(14, 14, 15);
+  display: block;
+  overflow-wrap: break-word;
+  font-size: 3.5rem;
+  line-height: 111%;
+  letter-spacing: -0.004rem;
+  font-weight: 600;
+  font-family: "Klarna Display";
+}
+.grid {
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+}
+.centerMuiIcoin {
+  display: flex;
+  margin: auto;
+}
+.centerMuiIcoin:hover {
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: #2767d634;
+  padding: 8px;
+}
+.grid > p {
+  border-radius: 10px;
+  text-align: center;
+}
+.dealcross {
+  background-color: #d1e2ff;
+  grid-gap: 20px;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+}
+a {
+  color: black;
+}
