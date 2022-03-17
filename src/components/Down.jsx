@@ -1,6 +1,15 @@
+import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import React from "react";
+import { DataContext } from "../context/DataContext";
 import "./Down.css";
 const Down = () => {
+  const { array } = React.useContext(DataContext);
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+  console.log(array);
   React.useEffect(() => {
     document.querySelector(".giveBottom").style.borderBottom =
       "2px solid #00000048";
@@ -124,7 +133,34 @@ const Down = () => {
         <hr />
       </div>
 
-      <div className="down_right">y</div>
+      <div className="down_right">
+        <TextField
+          style={{
+            marginTop: "20px",
+          }}
+          id="standard-basic"
+          label="Search"
+          variant="standard"
+        />
+        <div>
+          <h3>{array.length}</h3>
+          <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
+          <Select
+            labelId="demo-simple-select-standard-label"
+            id="demo-simple-select-standard"
+            value={age}
+            onChange={handleChange}
+            label="Age"
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </div>
+      </div>
     </div>
   );
 };
