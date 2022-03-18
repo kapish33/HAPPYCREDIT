@@ -10,10 +10,19 @@ import { DataContext } from "../context/DataContext";
 import "./Down.css";
 const Down = () => {
   const { array } = React.useContext(DataContext);
+  const [showArray, setShowArray] = React.useState(array);
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+  const handelSearch = (event) => {
+    console.log(event);
+    // get all items from array wich have desc like event.target.value
+    const newArray = array.filter((item) =>
+      item.desc.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setShowArray(newArray);
   };
   console.log(array);
   React.useEffect(() => {
@@ -27,6 +36,17 @@ const Down = () => {
       button.style.borderBottom = "none";
     });
     allGiveButtons[index].style.borderBottom = "2px solid #00000048";
+    // generate a random number betweeen 5 to 10
+    const randomNumber = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+    // randmom bumber in between 10 to 20
+    const randomNumber2 = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    setShowArray(array.slice(randomNumber, randomNumber2));
+  };
+  const fireChange = () => {
+    const randomNumber = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+    // randmom bumber in between 10 to 20
+    const randomNumber2 = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    setShowArray(array.slice(randomNumber, randomNumber2));
   };
   return (
     <div className="width grid_bottom">
@@ -118,22 +138,57 @@ const Down = () => {
         <h2>Filter</h2>
         <h3>Type</h3>
         <div className="gapping">
-          <input type="checkbox" name="OnlyCoupons" id="OnlyCoupons" />
+          <input
+            onChange={() => {
+              fireChange();
+            }}
+            type="checkbox"
+            name="OnlyCoupons"
+            id="OnlyCoupons"
+          />
           <label htmlFor="OnlyCoupons">Only Coupons</label>
           <br />
-          <input type="checkbox" name="Exclusives" id="Exclusives" />
+          <input
+            type="checkbox"
+            onChange={() => {
+              fireChange();
+            }}
+            name="Exclusives"
+            id="Exclusives"
+          />
           <label htmlFor="Exclusives">Exclusives</label>
           <br />
-          <input type="checkbox" name="BOGOAndMore" id="BOGOAndMore" />
+          <input
+            onChange={() => {
+              fireChange();
+            }}
+            type="checkbox"
+            name="BOGOAndMore"
+            id="BOGOAndMore"
+          />
           <label htmlFor="BOGOAndMore">BOGO and more</label>
         </div>
         <hr />
         <h3>Discount</h3>
         <div className="gapping">
-          <input type="checkbox" name="0-49%Off" id="0-49%Off" />
+          <input
+            onChange={() => {
+              fireChange();
+            }}
+            type="checkbox"
+            name="0-49%Off"
+            id="0-49%Off"
+          />
           <label htmlFor="0-49%Off">0-49% off</label>
           <br />
-          <input type="checkbox" name="50-80%Off" id="50-80%Off" />
+          <input
+            onChange={() => {
+              fireChange();
+            }}
+            type="checkbox"
+            name="50-80%Off"
+            id="50-80%Off"
+          />
           <label htmlFor="50-80%Off">50-80% off</label>
         </div>
         <hr />
@@ -141,6 +196,9 @@ const Down = () => {
 
       <div className="down_right">
         <TextField
+          onChange={(e) => {
+            handelSearch(e);
+          }}
           style={{
             marginTop: "20px",
           }}
@@ -149,7 +207,7 @@ const Down = () => {
           variant="standard"
         />
         <div className="handel">
-          <h3>{array.length} deals</h3>
+          <h3>{showArray.length} deals</h3>
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-standard-label">
               Featured
@@ -171,7 +229,7 @@ const Down = () => {
           </FormControl>
         </div>
         <div className="collectionCard">
-          {array.map((item) => {
+          {showArray.map((item) => {
             return (
               <div className="handelCards" key={item.id}>
                 <img src={item.url} alt={item.name} />
