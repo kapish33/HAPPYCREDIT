@@ -43,3 +43,36 @@
 a {
   color: black;
 }
+.scrollX {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: flex;
+  width: 90%;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.scrollX {
+  font-weight: 600;
+  padding: 10px;
+  margin: 3%;
+}
+.scrollX > span {
+  margin: 0% 5px;
+  background-color: rgb(240, 241, 241);
+  padding: 10px 15px;
+  border-radius: 25px;
+}
+.hadndelspans:first-child {
+  padding: 10px;
+  margin: 10px;
+}
+.hadndelspans {
+  justify-content: space-between;
+  margin: 10px;
+}
+.hadndelspans > :last-child {
+  float: right;
+  border-radius: 25px;
+}

@@ -27,3 +27,14 @@
 .boderHand {
   border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 }
+.shop {
+  animation: comedown 0.5s;
+}
+@keyframes comedown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

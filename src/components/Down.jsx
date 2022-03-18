@@ -252,7 +252,7 @@ const Down = () => {
         <div className="collectionCard">
           {showArray.map((item) => {
             return (
-              <div className="handelCards" key={item.id}>
+              <div className="handelCards" key={item.url}>
                 <img src={item.url} alt={item.name} />
                 <h3>{item.name}</h3>
                 <p>{item.desc}</p>
