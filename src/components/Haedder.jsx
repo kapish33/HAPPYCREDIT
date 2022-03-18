@@ -3,6 +3,27 @@ import React from "react";
 import "./Haedder.css";
 
 const Haedder = () => {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  // onchage of screen size set width
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, []);
+  React.useEffect(() => {
+    if (width < 900) {
+      // make all .shop display none
+      document.querySelectorAll(".shop").forEach((el) => {
+        el.style.display = "none";
+      });
+    } else {
+      document.querySelectorAll(".shop").forEach((el) => {
+        el.style.display = "block";
+      });
+    }
+  }, [width]);
+
+  console.log(width);
   return (
     <div className="boderHand">
       <div className="upper">

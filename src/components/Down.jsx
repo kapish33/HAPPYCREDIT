@@ -15,23 +15,27 @@ const Down = () => {
 
   const handleChange = (event) => {
     setAge(event.target.value);
+    // genetrate a random number between 5 to 10
+    const random = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+    // generte another random number between 10 to 20
+    const random2 = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    setShowArray(array.slice(random, random2));
   };
   const handelSearch = (event) => {
-    console.log(event);
     // get all items from array wich have desc like event.target.value
     const newArray = array.filter((item) =>
       item.desc.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setShowArray(newArray);
   };
-  console.log(array);
+
   React.useEffect(() => {
     document.querySelector(".giveBottom").style.borderBottom =
       "2px solid #00000048";
   }, []);
   const handelUnderLine = (index) => {
     const allGiveButtons = document.querySelectorAll(".giveBottom");
-    console.log(allGiveButtons);
+
     allGiveButtons.forEach((button) => {
       button.style.borderBottom = "none";
     });
@@ -48,6 +52,23 @@ const Down = () => {
     const randomNumber2 = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
     setShowArray(array.slice(randomNumber, randomNumber2));
   };
+  const [width, setWidth] = React.useState(window.innerWidth);
+  // onchage of screen size set width
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, []);
+  React.useEffect(() => {
+    if (width < 900) {
+      // make down_left display none
+      document.querySelector(".down_left").style.display = "none";
+      document.querySelector(".grid_bottom").style.display = "flex";
+    } else {
+      document.querySelector(".down_left").style.display = "block";
+    }
+  }, [width]);
+
   return (
     <div className="width grid_bottom">
       <div className="down_left">
